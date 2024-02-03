@@ -1,0 +1,11 @@
+-¿La copia del array se realiza correctamente? ¿Por qué?
+
+-Si no es correcto, escribe un código que sí realice la copia correctamente.
+
+-Descomenta la llamada a la función tmo en la función main(). Compila de nuevo y ejecuta.
+
+-El problema que se produce, ¿es de compilación o de ejecución? ¿Por qué se produce?
+
+
+-Encuentra un valor de MAXVALID superior a 4 con el que no se dé el problema. ¿Se está escribiendo más allá del tamaño del array? Si es así, ¿por qué funciona el código?
+

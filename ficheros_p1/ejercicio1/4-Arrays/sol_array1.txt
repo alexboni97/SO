@@ -1,0 +1,12 @@
+¿Por qué no es necesario escribir "&list" para obtener la dirección del array list?
+
+¿Qué hay almacenado en la dirección de list?
+
+¿Por qué es necesario pasar como argumento el tamaño del array en la función init_array?
+
+¿Por qué el tamaño devuelto por sizeof() para el array de la función init_array no coincide con el declarado en main()?
+
+¿Por qué NO es necesario pasar como argumento el tamaño del array en la función init_array2?
+
+¿Coincide el tamaño devuelto por sizeof() para el array de la función init_array2 con el declarado en main()?
+
