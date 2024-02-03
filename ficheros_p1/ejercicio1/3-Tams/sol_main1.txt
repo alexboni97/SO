@@ -1,0 +1,33 @@
+####SOLUCION main1.c
+-EXPLICACION MODIFICADORES %d %c en printf()
+%d: imprime el valor entero correspondiente a la variable a (122) 
+%c: imprime el caracter correspondiente a la variable a (z)
+
+-TAMAÑO TIPO CHAR
+1
+
+-EXPLICACION AL SUMARLE 6 A LA VARIABLE a
+La variable a tiene un valor de 122 y al sumarle 6 pasaria a valer 128, pero este valor no puede guardarse en un tipo char, puesto que su rango se encuetra de [-128,127], al en contrarse fuera de rango, el valor de la varialble a pasa a valer -128. Despues, al hacer un prinf de este valor, es un valor no imprimible.
+
+-DIFERENCIA ENTRE float Y double
+el rango es el mismo pero el valor que pueden guardar es diferente, uno guarda enteros y el otro numeros reales, es decir, ocupan lo mismo pero tienen propositos diferentes
+
+
+###SOLUCION main2.c
+-TIPO DE PROBLEMA
+
+
+-EXPLICACION DEL PROBLEMA Y SOLUCION EN ____
+
+
+-DIRECCIONES CONSECUTIVAS O NO DE a,b,c,x
+
+-SIGNIFICADO DE %lu en printf()
+
+-DIRECCION QUE APUNTA pc, Y COINCIDENCIA CON ALGUNA VARIABLE DECLARADA Y TAMAÑO 
+
+-COINCIDENCIA SI O NO DE LAS DIRECCIONES str1 Y str2
+
+-EXPLICACION DEL VALOR DE sizeof() de str1 y str2
+
+
