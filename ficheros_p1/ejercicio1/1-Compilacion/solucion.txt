@@ -1,0 +1,13 @@
+-COMPILACION
+gcc -o hello2.exe hello2.c
+
+-COMPILACION CON ARCHIVOS DE PREPROCESADO
+gcc -E hello2.c
+
+-LLAMADA MIN() DE hello2.i
+la funcion min(a,b) la transforma en una operacion mas sencilla para luego poder pasarla a lenguaje ensamblador:
+a = ( (a<b)?a:b );
+
+-EFECTO DE LA DIRECTIVA #include <stdio.h>
+deja de ser una libreria externa y la incluye completa dentro del fichero .i 
+
