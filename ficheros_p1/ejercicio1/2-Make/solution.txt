@@ -1,0 +1,25 @@
+-EXPLICAR MAKEFILE
+mirar en el archivo de makefile con el comando cat makefile
+
+-LINEAS DE EJECUCION AL USAR make
+#regla de contruccion
+gcc -Wall -g -c -o aux.o aux.c
+#regla de contruccion
+gcc -Wall -g -c -o init.o init.c
+#regla de construccion
+gcc -Wall -g -o prueba aux.o init.o -lm
+
+-EXPLICACION .PHONY: clean
+esta directiva hace que la palabra "clean" no la vincule a ningun posible fichero que se llame asi, y que lo atribuya de manera especial a un objetivo. Sin esta directiva, make intentaria crear un ejecutable si existe un archivo llamado clean
+
+-EXPLICACION ELIMINCION DE LIBS= -lm
+tenemos el siguiente error al comentar la linea "LIBS= -lm"
+/usr/bin/ld: aux.o: en la función `sinDegrees':
+/home/usuarioso/SO/ficheros_p1/ejercicio1/2-Make/aux.c:7: referencia a `sin' sin definir
+/usr/bin/ld: aux.o: en la función `cosDegrees':
+/home/usuarioso/SO/ficheros_p1/ejercicio1/2-Make/aux.c:12: referencia a `cos' sin definir
+collect2: error: ld returned 1 exit status
+make: *** [makefile:14: all] Error 1
+
+Este error sucede porque hemos quitado del enlazador la libreria de matematicas, y no reconoce las funciones sen y cos
+La opcion -lm hace que se enlace con la libreria libm
