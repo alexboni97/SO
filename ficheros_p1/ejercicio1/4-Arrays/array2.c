@@ -2,7 +2,7 @@
 
 #define N 10
 #define MAXELEM 5000
-#define MAXVALID 100
+#define MAXVALID 6
 
 // function that prints on the standard output the contents of the array of v of size size
 void imprimeArray(int v[],int size)
@@ -18,9 +18,14 @@ void imprimeArray(int v[],int size)
 void copyArray(int src[],int dst[],int size)
 {
  	dst = src;
+	/*
+	solucion apartado b
+	for(int i=0<;i<size;i++)
+		dst[i]=src[i];
+	*/
 }
 
-/*
+
 void tmo()
 {
 	int x = -1;
@@ -34,14 +39,15 @@ void tmo()
 
 	printf("x %d b %d c %d\n", x,b,c);
 }
-*/
+
 
 int main()
 {
 	int A[N] = {4,3,8,5,6,9,0,1,7,2};
 	int B[N];
 
-	//tmo();
+	tmo();
 	copyArray(A,B,N);
+	imprimeArray(A,N);
 	imprimeArray(B,N);
 }
