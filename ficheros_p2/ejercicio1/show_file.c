@@ -15,16 +15,21 @@ int main(int argc, char* argv[]) {
 	if ((file = fopen(argv[1], "r")) == NULL)
 		err(2,"The input file %s could not be opened",argv[1]);
 
-	/* Read file byte by byte */
-	while ((c = getc(file)) != EOF) {
-		/* Print byte to stdout */
-		ret=putc((unsigned char) c, stdout);
+	// /* Read file byte by byte */
+	// while ((c = getc(file)) != EOF) {
+	// 	/* Print byte to stdout */
+	// 	ret=putc((unsigned char) c, stdout);
 
-		if (ret==EOF){
-			fclose(file);
-			err(3,"putc() failed!!");
-		}
-	}
+	// 	if (ret==EOF){
+	// 		fclose(file);
+	// 		err(3,"putc() failed!!");
+	// 	}
+	// }
+
+	 while ((fread(&c,sizeof(char),1,file)) != 0) {
+		fwrite(&c,sizeof(char),1,stdout);
+	 }
+
 
 	fclose(file);
 	return 0;
