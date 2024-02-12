@@ -16,12 +16,29 @@
  */
 char *loadstr(FILE *file)
 {
-	/* To be completed */
+
 	return NULL;	
 }
 
 int main(int argc, char *argv[])
 {
-	/* To be completed */
+	if(argc!=2){
+		fprintf(stderr,"Usage: %s <fichero>\n",argv[0]);
+		exit(1);
+	}
+	FILE *file=NULL;
+	file=fopen(argv[1],"r");
+	if(file==NULL){
+		err(2,"fichero <%s>no existe ",argv[1]);
+	}
+	char *c;
+	c=loadstr(file);
+	while(c!=NULL){
+
+		c=loadstr(file);
+		fread(c)
+	}
+	
+	fclose(file);
 	return 0;
 }
