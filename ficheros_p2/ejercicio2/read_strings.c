@@ -16,8 +16,26 @@
  */
 char *loadstr(FILE *file)
 {
+	int r,tam;
+	fread(&r,sizeof(char),1,file);
+	tam=1;
+	while (r!='\0')
+	{
+		fread(&r,sizeof(char),1,file);
+		tam++;
+		
+	}
+	fseek(file,-tam,SEEK_CUR);
+	char*c=NULL;
 
-	return NULL;	
+	c=(char*)malloc(tam*sizeof(char));
+	if(c==NULL){
+		return NULL;
+	}else
+	fread(c,sizeof(char),tam,file);
+	//c[tam-1]='\0';
+	r=-1;
+	return c;	
 }
 
 int main(int argc, char *argv[])
@@ -32,13 +50,13 @@ int main(int argc, char *argv[])
 		err(2,"fichero <%s>no existe ",argv[1]);
 	}
 	char *c;
-	c=loadstr(file);
-	while(c!=NULL){
-
-		c=loadstr(file);
-		fread(c)
+	while (!feof(file))
+	{
+		c = loadstr(file);
+		printf("%s\n", c);
+		free(c);
 	}
-	
+
 	fclose(file);
 	return 0;
 }
