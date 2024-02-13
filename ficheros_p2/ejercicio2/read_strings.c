@@ -16,26 +16,20 @@
  */
 char *loadstr(FILE *file)
 {
-	int r,tam;
-	fread(&r,sizeof(char),1,file);
-	tam=1;
-	while (r!='\0')
+	char r;
+	int tam=1;
+	while (fread(&r,sizeof(char),1,file)==1&&r!='\0')
 	{
-		fread(&r,sizeof(char),1,file);
 		tam++;
-		
 	}
 	fseek(file,-tam,SEEK_CUR);
 	char*c=NULL;
-
-	c=(char*)malloc(tam*sizeof(char));
-	if(c==NULL){
+	if(tam>1){
+		c=(char*)malloc(tam*sizeof(char));
+		fread(c,sizeof(char),tam,file);
+		return c;	
+	}else 
 		return NULL;
-	}else
-	fread(c,sizeof(char),tam,file);
-	//c[tam-1]='\0';
-	r=-1;
-	return c;	
 }
 
 int main(int argc, char *argv[])
@@ -50,11 +44,15 @@ int main(int argc, char *argv[])
 		err(2,"fichero <%s>no existe ",argv[1]);
 	}
 	char *c;
-	while (!feof(file))
+	c = loadstr(file);
+	if(c==NULL){
+		printf("HA SUCEDIDO UN ERROR AL LEER LA PRIMERA PALABRA	\n");
+	}
+	while (c!=NULL)
 	{
-		c = loadstr(file);
 		printf("%s\n", c);
 		free(c);
+		c = loadstr(file);
 	}
 
 	fclose(file);
