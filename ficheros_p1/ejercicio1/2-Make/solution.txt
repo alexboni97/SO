@@ -1,7 +1,7 @@
--EXPLICAR MAKEFILE
-mirar en el archivo de makefile con el comando cat makefile
+-Examina el makefile, identifica las variables definidas, los objetivos (targets) y las regalas	.
+Solucion: mirar en el archivo de makefile con el comando cat makefile
 
--LINEAS DE EJECUCION AL USAR make
+-Ejecuta make en la linea de comandos y comprueba las ordenes que ejecuta para construir el proyecto.
 #regla de contruccion
 gcc -Wall -g -c -o aux.o aux.c
 #regla de contruccion
@@ -9,10 +9,12 @@ gcc -Wall -g -c -o init.o init.c
 #regla de construccion
 gcc -Wall -g -o prueba aux.o init.o -lm
 
--EXPLICACION .PHONY: clean
+-Marca el fichero aux.c como modificado ejecutando touch aux.c. Después ejecuta de nuevo make. ¿Qué diferencia hay con la primera vez que lo ejecutaste? ¿Por qué?
+
+-Ejecuta la orden make clean. ¿Qué ha sucedido? Observa que el objetivo clean está marcado como phony en la directiva .PHONY: clean. ¿por qué? Para comprobarlo puedes comentar dicha línea del makefile, compilar de nuevo haciendo make, y después crear un fichero en el mismo directorio que se llame clean, usando el comando touch clean. Ejecuta ahora make clean, ¿qué pasa?-EXPLICACION .PHONY: clean
 esta directiva hace que la palabra "clean" no la vincule a ningun posible fichero que se llame asi, y que lo atribuya de manera especial a un objetivo. Sin esta directiva, make intentaria crear un ejecutable si existe un archivo llamado clean
 
--EXPLICACION ELIMINCION DE LIBS= -lm
+-Comenta la línea LIBS = -lm poniendo delante una almoadilla (#). Vuelve a contruir el proyecto ejecutando make (haz un clean antes si es necesario). ¿Qué sucede? ¿Qué etapa es la que da problemas? EXPLICACION ELIMINCION DE LIBS= -lm
 tenemos el siguiente error al comentar la linea "LIBS= -lm"
 /usr/bin/ld: aux.o: en la función `sinDegrees':
 /home/usuarioso/SO/ficheros_p1/ejercicio1/2-Make/aux.c:7: referencia a `sin' sin definir
