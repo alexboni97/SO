@@ -1,33 +1,40 @@
 ####SOLUCION main1.c
--EXPLICACION MODIFICADORES %d %c en printf()
+-¿Por qué el primer printf() imprime valores distintos para ‘a’ con los modificadores %d y %c?
 %d: imprime el valor entero correspondiente a la variable a (122) 
 %c: imprime el caracter correspondiente a la variable a (z)
 
 -TAMAÑO TIPO CHAR
 1
 
--EXPLICACION AL SUMARLE 6 A LA VARIABLE a
+-¿Por qué el valor de ‘a’ cambia tanto al incrementarlo en 6?
 La variable a tiene un valor de 122 y al sumarle 6 pasaria a valer 128, pero este valor no puede guardarse en un tipo char, puesto que su rango se encuetra de [-128,127], al en contrarse fuera de rango, el valor de la varialble a pasa a valer -128. Despues, al hacer un prinf de este valor, es un valor no imprimible.
 
--DIFERENCIA ENTRE float Y double
+-DIFERENCIA ENTRE float Y double si ocupan lo mismo
 el rango es el mismo pero el valor que pueden guardar es diferente, uno guarda enteros y el otro numeros reales, es decir, ocupan lo mismo pero tienen propositos diferentes
 
 
 ###SOLUCION main2.c
--TIPO DE PROBLEMA
+-¿Tenemos un problema de compilación o de ejecución?
+Es de compilacion, no crea el fichero ejecutable
 
+-¿Por qué se da el problema?. Soluciónalo, compila y ejecuta de nuevo.
+Porque los arrays se inicializa su tamaño con un variable constante
 
--EXPLICACION DEL PROBLEMA Y SOLUCION EN ____
+-a,b,c, y x están declaradas de forma consecutiva. ¿Son sus direcciones concecutivas?
+No lo son 
 
+-¿Qué significa el modificar "%lu" en printf()?
+long unsigned
 
--DIRECCIONES CONSECUTIVAS O NO DE a,b,c,x
+-¿A qué dirección apunta "pc"? ¿Coincide con la de alguna variable anteriormente declarada? Si es así, ¿Coinciden los tamaños de ambas?
+apunta a  0x55e9ca069062 que coincide con la de x, porque pc es un puntero que se inicializa con la direccion del x
 
--SIGNIFICADO DE %lu en printf()
+-¿Coincide el valor del tamaño de array1 con el número de elementos del array? ¿Por qué?
+Si coincide, cada elemento ocupa 4 bytes, y este se declara con 10 valores, que multiplicados, su resultado es 40 que coincide con el tamaño del array 1
 
--DIRECCION QUE APUNTA pc, Y COINCIDENCIA CON ALGUNA VARIABLE DECLARADA Y TAMAÑO 
+-¿Coinciden las direcciones a la que apunta str1 con la de str2?
+Son distintas
 
--COINCIDENCIA SI O NO DE LAS DIRECCIONES str1 Y str2
-
--EXPLICACION DEL VALOR DE sizeof() de str1 y str2
-
+-¿Por qué los tamaños (según sizeof()) de str1 y str2 son diferentes?
+porque una guarda una direccion que ocupa 8 bytes mientras que str2 almacena los valores del string guardado
 

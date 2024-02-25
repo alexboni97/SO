@@ -2,7 +2,8 @@
 
 
 #define ARRAY_SIZE  10
-
+#define ARRAY_SIZE2 7
+//const int a = 7; solucion 2
 int a = 7;
 unsigned long b = 8;
 short c;
@@ -10,7 +11,8 @@ char x;
 char* pc;
 
 int array1[ARRAY_SIZE];
-int array2[a];
+//int array2[a];
+int array2[ARRAY_SIZE2];
 
 char* str1    = "STRING OF CHARACTERS";
 char str2[]   = "STRING OF CHARACTERS";
