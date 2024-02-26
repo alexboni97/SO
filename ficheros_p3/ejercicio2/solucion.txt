@@ -1,0 +1,13 @@
+###COPIA DE ENLACES SIMBOLICOS
+-CREACION DE ENLACE SIMBOLICO
+ln -s ../ejercicio1/Makefile mylink
+
+-COPIAR ENLACE CON copy DE ejercicio1(solo copia el contenido del archivo)
+../ejercicio1/copy mylink mylinkcopy
+
+-¿Qué tipo de fichero es mylinkcopy? ¿Cuál es el contenido del fichero mylinkcopy? Se pueden usar los comandos ls, stat, cat y diff
+es un fichero regular. el contenido es el mismo que contenia el archivo al que apuntaba el enlace simbolico mylink
+
+-Modificar copy2.c para que Antes de hacer la copia identifique si el fichero origen es un fichero regular, un enlace simbólico u otro tipo de fichero, haciendo uso de la llamada al sistema lstat
+mirar solucion en el codigo
+
