@@ -13,7 +13,8 @@
         "iostream": "cpp",
         "algorithm": "cpp",
         "iomanip": "cpp",
-        "err.h": "c"
+        "err.h": "c",
+        "stdio.h": "c"
     },
     "cmake.configureOnOpen": false,
     "C_Cpp.errorSquiggles": "enabled"
