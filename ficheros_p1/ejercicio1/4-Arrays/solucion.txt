@@ -1,0 +1,34 @@
+########## SOLUCION array1.c
+-¿Por qué no es necesario escribir "&list" para obtener la dirección del array list?
+porque los arrays se pasan por referencia es decir la dirección al primer elemento.
+
+-¿Qué hay almacenado en la dirección de list?
+el primer elemento del array
+
+-¿Por qué es necesario pasar como argumento el tamaño del array en la función init_array?
+porque el metodo recibe un array sin un tamaño definido
+
+-¿Por qué el tamaño devuelto por sizeof() para el array de la función init_array no coincide con el declarado en main()?
+preguntar profe
+
+-¿Por qué NO es necesario pasar como argumento el tamaño del array en la función init_array2?
+porque el paso por parametro ya viene definido su tamaño maximo
+
+-¿Coincide el tamaño devuelto por sizeof() para el array de la función init_array2 con el declarado en main()?
+es 8 no coincide preguntar el porque al profe 
+
+######### SOLUCION array2.c
+-¿La copia del array se realiza correctamente? ¿Por qué?
+
+
+-Si no es correcto, escribe un código que sí realice la copia correctamente.
+
+
+-Descomenta la llamada a la función tmo en la función main(). Compila de nuevo y ejecuta.
+
+
+-El problema que se produce, ¿es de compilación o de ejecución? ¿Por qué se produce?
+
+
+-Encuentra un valor de MAXVALID superior a 4 con el que no se dé el problema. ¿Se está escribiendo más allá del tamaño del array? Si es así, ¿por qué funciona el código?
+
