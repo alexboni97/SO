@@ -19,14 +19,21 @@ void mostrar(int fdo)
 	// write(fdd, arr, s);
 }
 
-int main(int argc, char *argv[])
+//int main()
+int main(int argc,char *argv[])
 {
+	// int argc=5;
+	// char *argv1="check_mostrar";
+	// char *argv2="-n";
+	// char *argv3="10";
+	// char *argv4="-e";
+	// char *argv[]={argv1,argv2,argv3,argv4};
 	if (argc > 5 || argc < 4)
 	{
 		fprintf(stderr, "Usage %s <fileIn> [-n N] [-e]\n", argv[0]);
 		exit(1);
 	}
-	int opt, N, fdo, pos;
+	int opt, N,tamN, fdo, pos;
 	opt = getopt(argc, argv, "n");
 	if (opt == 'n')
 	{
@@ -42,8 +49,15 @@ int main(int argc, char *argv[])
 			close(fdo);
 			exit(1);
 		}
-		N = argv[optind];
-		fprintf(stderr, "salto de : %d", N);
+		//N = atoi(optarg); //preguntar profe porque en el manual hay este ejemplo y no funciona
+		////N=atoi(argv[optind]);
+		// //N=*argv[optind]-'0';//valido si solo tiene un caracter
+		char *salto=argv[optind];
+		tamN=strlen(salto);
+		N=0;
+		for(int i=0;i<tamN;i++){
+			N= 10*N + salto[i]-'0';
+		}
 		opt = getopt(argc, argv, "e");
 		if (opt == -1)
 		{
