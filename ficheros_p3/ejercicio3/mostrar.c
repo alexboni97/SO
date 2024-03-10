@@ -52,6 +52,7 @@ int main(int argc,char *argv[])
 		//N = atoi(optarg); //preguntar profe porque en el manual hay este ejemplo y no funciona
 		////N=atoi(argv[optind]);
 		// //N=*argv[optind]-'0';//valido si solo tiene un caracter
+		//strtol((optarg,NULL,10))
 		char *salto=argv[optind];
 		tamN=strlen(salto);
 		N=0;

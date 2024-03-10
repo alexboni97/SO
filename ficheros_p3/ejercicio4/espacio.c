@@ -4,6 +4,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <dirent.h>
+#include <string.h>
 /* Forward declaration */
 int get_size_dir(char *fname, size_t *blocks);
 
@@ -12,25 +13,23 @@ int get_size_dir(char *fname, size_t *blocks);
  */
 int get_size(char *fname, size_t *blocks)
 {
-	int t=0;
+	//auto t=*blocks;
 	struct stat info;
 	if(lstat(fname,&info)==0){
 		switch (info.st_mode &S_IFMT)//S_IFMT mascara para que solo compruebe los bits correspondientes al modo
 		{
 		case S_IFDIR:
 			int t;
-			t=get_size_dir(fname,0);
-			blocks+=t;
+			get_size_dir(fname,blocks);
 			break;
 		case S_IFREG:
-			t=info.st_blocks;
-			t/2;
+			*blocks+=info.st_blocks;
 			break;
 		default:
 			break;
 		}
 	}
-	return ;
+	return 0;
 }
 
 
@@ -40,17 +39,19 @@ int get_size(char *fname, size_t *blocks)
  */
 int get_size_dir(char *dname, size_t *blocks)
 {
+	//int t=*blocks;
 	DIR *d;
 	struct dirent *dinfo;
 	d=opendir(dname);
-	while(dinfo=readdir(d)!=NULL){
-		if(dinfo->d_name!="." && dinfo->d_name!=".."){
-			int t=0;
-			t=getsize(dinfo->d_name,0);
-			blocks+=t;
+	while((dinfo=readdir(d))!=NULL){
+		//if(dinfo->d_name!="." && dinfo->d_name!=".."){//preguntar porque no funciona de esta manera
+		if(strcmp(dinfo->d_name, ".") == 0 || strcmp(dinfo->d_name, "..") == 0){
+			continue;
 		}
+			get_size(dinfo->d_name,blocks);
 	}
-	return t;
+	closedir(d);
+	return 0;
 }
 
 /* Processes all the files in the command line calling get_size on them to
@@ -68,9 +69,12 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Usage %s <file1> <file2> <...>\n", argv[0]);
 		exit(1);
 	}
-	int t=0;
-	for (int i = 0; i<argc; i++){
-		t+=get_size(argv[i],0);
+	size_t *blocks=malloc(sizeof(int));
+	for (int i = 1; i<argc; i++){
+		*blocks=0;
+		get_size(argv[i],blocks);
+		*blocks/=2;
+		fprintf(stdout,"%ld		%s\n",*blocks,argv[i]);
 	}
 	return 0;
 }
