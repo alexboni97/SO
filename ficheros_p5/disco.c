@@ -33,6 +33,19 @@ void *client(void *arg)
 
 int main(int argc, char *argv[])
 {
+	FILE *f=fopen(argv[1],"r");
+	int n;
+	if(!isfopen(f)){
+		fprintf("error al abrir el fichero:%s\n",argv[1]);
+	}
+	else{
+		
+		fscanf(f,"%d",n);
+		int *personas=malloc(sizeof(int)*n);
+		for(int i=0;i<n;i++){
+			fscanf(f,"%d",personas[i]);
+		}
+	}
 
 	return 0;
 }
