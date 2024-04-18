@@ -6,6 +6,11 @@
 #define CAPACITY 5
 #define VIPSTR(vip) ((vip) ? "  vip  " : "not vip")
 
+struct P
+{
+	int id;
+	int tipo;
+};
 void enter_normal_client(int id)
 {
 }
@@ -34,20 +39,17 @@ void *client(void *arg)
 	else
 		enter_normal_client(p->id);
 	dance(p->id, p->tipo);
-	exit_client(p->id, p->tipo);
+	disco_exit(p->id, p->tipo);
 }
-struct P
-{
-	int id;
-	int tipo;
-};
 int main(int argc, char *argv[])
 {
-	FILE *f = fopen(argv[1], "r");
+	//FILE *f = fopen(argv[1], "r");
+	FILE *f = fopen("ejemplo.txt", "r");
+
 	int n;
-	if (!isfopen(f))
+	if (f==NULL)
 	{
-		fprintf("error al abrir el fichero:%s\n", argv[1]);
+		printf("error al abrir el fichero:%s\n", argv[1]);
 	}
 	else
 	{
@@ -59,13 +61,14 @@ int main(int argc, char *argv[])
 		pthread_attr_init(&attr);
 		pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
 
-		struct P p;
 		for (int i = 0; i < n; i++)
 		{
 
-			fscanf(f, "%d", p->second);
-			p->first = i;
-			pthread_create(&phs[i], &attr, client(p), NULL);
+			struct P* ptrp=malloc(sizeof(struct P));
+			
+			fscanf(f, "%d", ptrp->tipo);
+			ptrp->id= i;
+			pthread_create(&phs[i], &attr, client(ptrp), NULL);
 		}
 	}
 
