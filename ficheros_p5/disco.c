@@ -5,8 +5,11 @@
 
 #define CAPACITY 5
 #define VIPSTR(vip) ((vip) ? "  vip  " : "not vip")
+pthread_mutex_t mutex;
+pthread_cond_t vcAforo[CAPACITY];
+int aforoActual=0;
 
-struct P
+typedef struct P
 {
 	int id;
 	int tipo;
@@ -43,10 +46,10 @@ void *client(void *arg)
 }
 int main(int argc, char *argv[])
 {
-	//FILE *f = fopen(argv[1], "r");
-	FILE *f = fopen("ejemplo.txt", "r");
+	FILE *f = fopen(argv[1], "r");
+	// FILE *f = fopen("ejemplo.txt", "r");
 
-	int n;
+	int n;	//numero de hilos a crear
 	if (f==NULL)
 	{
 		printf("error al abrir el fichero:%s\n", argv[1]);
@@ -54,9 +57,10 @@ int main(int argc, char *argv[])
 	else
 	{
 
-		fscanf(f, "%d", n);
+		fscanf(f, "%d", &n); // lee del fichero los datos del tamaño del segundo argumento y los almacena en la variable o variables del tercer o siguientes argumentos
 		pthread_attr_t attr;
-		pthread_t phs[n];
+		pthread_t phs[CAPACITY];
+		
 
 		pthread_attr_init(&attr);
 		pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
@@ -66,10 +70,53 @@ int main(int argc, char *argv[])
 
 			struct P* ptrp=malloc(sizeof(struct P));
 			
-			fscanf(f, "%d", ptrp->tipo);
+			fscanf(f, "%d", &ptrp->tipo);
 			ptrp->id= i;
-			pthread_create(&phs[i], &attr, client(ptrp), NULL);
+			pthread_create(&phs[i], &attr, client, ptrp);
 		}
+
+
+
+		// struct P *colaVIP=(struct P*)malloc(CAPACITY*sizeof(struct P));
+		// int tamColaVip=0;
+		// int contColaVip=0;
+		// struct P *colaNOVIP=(struct P*)malloc(CAPACITY*sizeof(struct P));
+		// int tamColaNOVip=0;
+		// int contColaNOVip=0;
+		// int thread_status[CAPACITY];
+		// for (int i = 0; i < CAPACITY; i++)
+		// 	thread_status[i]=0;
+		
+		// for (int i = 0; i < n; i++)
+		// {
+		// 	struct P *ptrp = malloc(sizeof(struct P));
+		// 	fscanf(f, "%d", &ptrp->tipo);
+		// 	ptrp->id= i;
+		// 	if(VIPSTR(ptrp->tipo)){
+		// 		colaVIP[tamColaVip]=*ptrp;
+		// 		tamColaVip++;
+		// 	}else{
+				
+		// 		colaNOVIP[tamColaNOVip]=*ptrp;
+		// 		tamColaNOVip++;
+		// 	}
+		// 	for (int i = 0; i < CAPACITY; i++)
+		// 	{
+		// 		if(thread_status[i]==0){
+		// 			if(tamColaVip!=0&&contColaVip<tamColaVip){
+		// 				pthread_create(&phs[i], &attr, client, &colaVIP[contColaVip]);
+		// 				contColaVip++;
+		// 			}
+		// 			else{
+		// 				pthread_create(&phs[i], &attr, client, &colaVIP[contColaNOVip]);
+		// 				contColaNOVip++;
+		// 			}
+						
+		// 			break;
+		// 		}
+		// 	}
+		// }
+		
 	}
 
 	return 0;
