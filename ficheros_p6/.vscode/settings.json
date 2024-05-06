@@ -14,7 +14,8 @@
         "algorithm": "cpp",
         "iomanip": "cpp",
         "err.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "stdlib.h": "c"
     },
     "cmake.configureOnOpen": false,
     "C_Cpp.errorSquiggles": "enabled"
