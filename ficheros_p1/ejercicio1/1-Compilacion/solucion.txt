@@ -1,6 +1,9 @@
--COMPILACION 
+-COMPILACION express (preprocesado+ compilacion + ensamblado)+enlazado
 gcc -o hello2.exe hello2.c
 
+-compilacion en dos pasos
+gcc -c hello2.c //me genera un .o
+gcc -o hello2.exe //me genera un .exe
 -EJECUCION
 ./hello2.exe
 
