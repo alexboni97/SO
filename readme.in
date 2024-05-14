@@ -1,16 +1,133 @@
-Indice
-|--> ficheros_p1 -> Introduccion al entorno de desarrollo y la programacion de sistemas
-|--> ficheros_p2 -> programacion en C y libreria estandar
-|--> ficheros_p3 -> Conceptos basicos de sistemas de ficheros
-|--> ficheros_p4 -> Procesos e hilos
-|--> ficheros_p5 -> Sincronizacion de hilos de un mismo proceso
-|--> ficheros_p6 -> Sincronizacion de hilos de distintos Procesos
-|--> ficheros_p7 -> 
-|-->
-|-->
-|-->
-|-->
-|-->
-|-->
-|-->	
-   |-->
+Indice-Funciones usadas en  practicas
+|---> ficheros_p1 -> Introduccion al entorno de desarrollo y la programacion de sistemas
+|    |--> Ejercicio 1 - Basics 
+|    |   |--> gcc // bash compilacion
+|    |   |--> printf() //mostrar datos por pantalla stdout
+|    |   |--> makefile //ejemplo creacion - 2.Make
+|    |   |--> %d - modificadores - 4.Arrays
+|    |   |--> malloc() // reservar memoria para punteros - 5.Punteros
+|    |   |--> free() // liberar memoria para punteros - 5.Punteros
+|    |   |--> struct // estructura de datos arg1.c y uso por referencia arg2.c - 6.Funciones
+|    |   |--> strlen() //tamaño de Strings - 7.Strings
+|    |
+|    |--> Ejercicio 2 - Depuracion
+|    |  |--> gdb //depuracion por consola
+|    |  
+|    |--> Ejercicio 3 - Parseo
+|    |  |--> getopt() //getopt.c
+|    |  |--> optarg //mirar para que funciona
+|    |  |--> optind //indice al primer argumento de opt
+|    |  |--> typedef enum() //defs.h 
+|    |  |--> strtol //mirar para que funciona
+|    |  
+|    |--> Ejercicio 4 - ficheros
+|       |--> typedef struct //declaracion en defs.h
+|       |--> static inline char* //mirar para que funciona
+|       |--> fprinf() //escribir en una salida stderr, fichero, stdout, etc
+|       |--> perror() //mirar como funciona
+|       |--> fopen() //abrir fichero
+|       |--> fgets() //leer de fichero
+|       |--> fseek() //mover puntero del fichero
+|       |--> memset() //mirar como funciona 
+|       |--> strsep() //mirar como funciona
+|       |--> strcpy() //mirar como funciona
+|       |--> clone_string() //mirar como funciona local
+|       |--> free_entries() //mirar como funciona local
+|       |--> sscanf() //mirar como funciona
+|      
+|---> ficheros_p2 -> programacion en C y libreria estandar
+|      |--> Ejercicio 1 - showfile
+|      |  |-->fread() //leer de fichero
+|      |  |-->fwrite() //escribir en fichero
+|      |    
+|      |--> Ejercicio - showfile en dos .c
+|      |  |--> loadstr() //funcion auxiliar que lee de un fichero hasta el fianl
+|      |    
+|      |--> Ejercicio - estudiantes //uso de todas las funciones f....()
+|      
+|---> ficheros_p3 -> Conceptos basicos de sistemas de ficheros
+|      |--> Ejercicio 1 -Copia de ficheros regulares
+|      |  |--> open() //abrir fichero devuelve un apuntador
+|      |  |--> read() //leer de fichero
+|      |  |--> write() //escribir en fichero
+|      |  |--> copy() //auxiliar que copia de un fichero a otro
+|      |    
+|      |--> Ejercicio 2 - Enlaces simbolicos
+|      |  |--> struct stat //variable externa que almacena su tipo
+|      |  |--> lstat() //lee el estado de una entrada tipo directorio ej
+|      |  |--> readlink() //mirar para que funciona
+|      |  |--> symlink() //mirar para que funciona
+|      |  |--> stat //bash comando
+|      |  |--> diff //bash comando
+|      |    
+|      |--> Ejercicio 3 - Desplazamiento del marcador de posición en ficheros
+|      |  |-->getopt() lseek() atoi() strlen() open()..... //write por salida estandar
+|      |    
+|      |--> Ejercicio 4 - Recorrido de directorios
+|      |  |--> DIR* // puntero a directorio
+|      |  |--> struct dirent // struct que almacena info del directorio
+|      |  |--> opendir() //abrir directorio
+|      |  |--> readdir() //leer directorio
+|      |  |--> strcmp() //comparar dos strings
+|      |  |--> closedir() //cerrar directorio
+|      |  |--> du -ks //bash que hace este ejer
+|      |    
+|      |--> Ejercicio 5 - Administración de ficheros y directorio
+|         |--> mkdir, rmdir, rm, touch, echo
+| 
+|---> ficheros_p4 -> Procesos e hilos
+|      |--> Ejercicio 1 - Creación de procesos y ejecución de programas (ls dir)
+|      |  |--> fork() //creacion de proceso nuevo
+|      |  |--> execlp() // ejecucicion de proceso hijo
+|      |  |--> wait() // espera de proceso padre
+|      |    
+|      |--> Ejercicio 2 - Creación y paso de parámetros a hilos
+|      |  |--> pthread_create, pthread_join, pthread_self // RESOLVEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEER
+|      |  |-->
+|      |    
+|      |--> Ejercicio 3 - Manejo de señales
+|      |  |-->RESOLVEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEER
+|      |  |-->
+|      |    
+|      |--> Ejercicio 4 - Manejo de ficheros con varios procesos e hilos
+|         |-->RESOLVEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEER
+|         |-->
+| 
+|---> ficheros_p5 -> Sincronizacion de hilos de un mismo proceso
+|      |--> Ejercicio disco (VARIABLES CONDICIONALES Y CERROJOS)
+|         |-->pthread_mutex_t //variable que almacena un mutex
+|         |-->pthread_cond_t //variable que es la variable condicional
+|         |-->pthread_attr_t //variable que almacena el atributo para mutex
+|         |-->pthread_mutex_init() // inicializacion del mutex
+|         |-->pthread_cond_init() //inicializacion de la variable condicional
+|         |-->pthread_attr_init() //mirar para que funciona
+|         |-->pthread_attr_setdetachstate() //mirar para que funciona
+|         |-->pthread_join() //espera del hilo padre a que termine hilo hijo
+|         |-->pthread_mutex_lock() //bloqueo del mutex
+|         |-->pthread_mutex_unlock() //desbloqueo del mutex
+|         |-->pthread_exit() //salida de fin de ejecucion del hilo
+|         |-->pthread_cond_wait() //espera a que se libere la vcond del mutex
+|         |-->pthread_cond_broadcast() //liberacion de la variable condicional
+|         |-->pthread_mutex_destroy() //destruccion del mutex
+|         |-->pthread_cond_destroy() //destruccion de la variable condicional
+| 
+|---> ficheros_p6 -> Sincronizacion de hilos de distintos Procesos
+|      |--> Ejercicio Cocineros y Salvajes(semaforos)
+|      |  |--> sem_t //variable que es un semaforo
+|      |  |--> signal() //mirar para que funciona
+|      |  |--> sem_open() //abrir semaforo
+|      |  |--> shm_open() //abrir buffer donde se va a escribir
+|      |  |--> ()nmap() //crear memoria compartida con el buffer abierto
+|      |  |--> munmap() //liberar memoria del buffer
+|      |  |--> close() //cerrar el puntero al buffer
+|      |  |--> sem_close() //cerrar semaforo
+|      |  |--> sem_unlink() //desmapear semaforo
+|      |    
+|      |--> Ejercicio Cocineros y Salvajes(mutex y variables condicionales)
+|      |  |-->
+| 
+|---> ficheros_p7 -> 
+       |--> 
+       |  |-->
+       |    
+       |-->
