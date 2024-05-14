@@ -1,3 +1,0 @@
--¿Por qué el valor de xc no se modifica tras la llamada a sumC? ¿Dónde se modifca esa información?
-
--Comenta las dos declaraciones adelantadas de sum() y sumC(). Compila de nuevo, ¿Qué ocurre?

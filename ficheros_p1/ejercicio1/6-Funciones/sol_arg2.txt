@@ -1,7 +1,0 @@
--¿Por qué cambia el valor de y tras la llamada a sum()?
-
--¿Por qué en ocasiones se usa el operador ‘.’ y en otras ‘->’ para acceder a los campos de una estructura?
-
--¿Por qué el valor de zc pasa a ser incorrecto sin volver a usarlo en el código?
-
--Corrije el código para evitar el error producido en zc

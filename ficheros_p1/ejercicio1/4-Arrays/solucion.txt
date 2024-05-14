@@ -19,16 +19,17 @@ es 8 no coincide preguntar el porque al profe
 
 ######### SOLUCION array2.c
 -¿La copia del array se realiza correctamente? ¿Por qué?
-
+No porque, no se realiza la copia elemento a elemnto del array
 
 -Si no es correcto, escribe un código que sí realice la copia correctamente.
-
+ver en codigo comentado
 
 -Descomenta la llamada a la función tmo en la función main(). Compila de nuevo y ejecuta.
 
 
 -El problema que se produce, ¿es de compilación o de ejecución? ¿Por qué se produce?
-
+es un probblemad de ejecución
 
 -Encuentra un valor de MAXVALID superior a 4 con el que no se dé el problema. ¿Se está escribiendo más allá del tamaño del array? Si es así, ¿por qué funciona el código?
-
+se ha puesto un 6 envez de 5000 puesto que sino hay un fallo de ejecución al acceder a posiciones de memoria que no esatan definidas
+para este programa.

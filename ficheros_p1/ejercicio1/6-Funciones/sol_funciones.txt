@@ -1,0 +1,16 @@
+########## sol_arg1.cambia#################
+-¿Por qué el valor de xc no se modifica tras la llamada a sumC? ¿Dónde se modifca esa información?
+se modifica en el _complex_ nuevo creado zc;
+
+-Comenta las dos declaraciones adelantadas de sum() y sumC(). Compila de nuevo, ¿Qué ocurre?
+surge un error en tiempo de compilacion puesto que no encuentra las funciones, es importante el orden donde se encuentran
+o hay que declararlas al comienzo del codigo
+
+########## sol_arg1.cambia#################
+-¿Por qué cambia el valor de y tras la llamada a sum()?
+
+-¿Por qué en ocasiones se usa el operador ‘.’ y en otras ‘->’ para acceder a los campos de una estructura?
+
+-¿Por qué el valor de zc pasa a ser incorrecto sin volver a usarlo en el código?
+
+-Corrije el código para evitar el error producido en zc

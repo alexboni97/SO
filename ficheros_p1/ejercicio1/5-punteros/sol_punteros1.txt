@@ -1,8 +1,0 @@
--¿Qué operador utilizamos para declarar una variable como un puntero a otro tipo?
-
--¿Qué operador utilizamos para obtener la dirección de una variable?
-
--¿Qué operador se utiliza para acceder al contenido de la dirección “a la que apunta” un puntero?
-
--Hay un error en el código. ¿Se produce en compilación o en ejecución? ¿Por qué se produce?
-

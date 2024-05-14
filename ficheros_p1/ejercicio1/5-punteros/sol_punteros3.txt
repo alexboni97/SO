@@ -1,5 +1,0 @@
--¿Por qué cambia el valor de ptr[13] tras la asignación ptr = &c;?
-
--El código tiene (al menos) un error. ¿Se manifiesta en compilación o en ejecución? ¿Por qué?
-
--¿Qué ocurre con la zona reservada por malloc() tras a asignación ptr = &c;? ¿Cómo se puede acceder a ella? ¿Cómo se puede liberar dicha zona?

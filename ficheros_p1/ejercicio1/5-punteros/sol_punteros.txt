@@ -1,0 +1,43 @@
+########## sol_punteros1.txt#################
+-¿Qué operador utilizamos para declarar una variable como un puntero a otro tipo? int *
+
+-¿Qué operador utilizamos para obtener la dirección de una variable? &ptr
+
+-¿Qué operador se utiliza para acceder al contenido de la dirección “a la que apunta” un puntero? *ptr
+
+-Hay un error en el código. ¿Se produce en compilación o en ejecución? ¿Por qué se produce?
+error de ejecucion - Segmentation fault, intento de acceder a una direccion de memoria no permitida 0x600a48.
+
+
+
+########## sol_punteros2.txt########################
+-¿Cuántos bytes se reservan en memoria con la llamada a malloc()?
+nelem*sizeof(int)
+
+-¿Cuál es la dirección del primer y último byte de dicha zona reservada?
+direccion del primer elemento 0x55e897e802a4
+direccion del ultimo byte 0x556d03619498
+
+-¿Por qué el contenido de la dirección apuntada por ptr es 7 y no 5 en el primer printf()?
+porque se ha modificado con ptr[0]=7
+
+-¿Por qué se modfica el contenido de ptr[1] tras la sentencia *ptr2=15;?
+porque se ha hecho un ptr2++;
+
+-Indica dos modos diferentes de escribir el valor 13 en la dirección correspondiente a ptr[100].
+ptr[100]=13
+*(ptr+100)=13
+
+-Hay un error en el código. ¿Se manifiesta en compilación o en ejecución? Aunque no se manifieste, el error está. ¿Cuál es?
+se libera la memoria que se reservo para ptr, pero despues asigna un valor a ptr, debería ser un error pero se lo come el compilador
+
+########## sol_punteros3.txt#########################
+-¿Por qué cambia el valor de ptr[13] tras la asignación ptr = &c;?
+porque estamos cambiando la direccion a la que apunta ptr por la direccion a &c
+
+-El código tiene (al menos) un error. ¿Se manifiesta en compilación o en ejecución? ¿Por qué?
+en ejecucion, se intenta liberar u memoria que no se asignado dinamicamente, es ptr al asignarle la dir de c
+
+-¿Qué ocurre con la zona reservada por malloc() tras a asignación ptr = &c;? ¿Cómo se puede acceder a ella? ¿Cómo se puede liberar dicha zona?
+se queda huerfana en el heap 
+habria que rastrearlo
