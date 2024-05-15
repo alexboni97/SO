@@ -39,9 +39,12 @@ Indice-Funciones usadas en  practicas
 |      |--> Ejercicio 1 - showfile
 |      |  |-->fread() //leer de fichero
 |      |  |-->fwrite() //escribir en fichero
+|      |  |-->getc() //leer byte a byte de fichero
+|      |  |-->putc() //escribir byte a byte en un fichero
 |      |    
 |      |--> Ejercicio - showfile en dos .c
 |      |  |--> loadstr() //funcion auxiliar que lee de un fichero hasta el fianl
+|      |  |--> fopen(), fclose(),fread(), fwrite(), fseek(), malloc() //funciones usadas
 |      |    
 |      |--> Ejercicio - estudiantes //uso de todas las funciones f....()
 |      
