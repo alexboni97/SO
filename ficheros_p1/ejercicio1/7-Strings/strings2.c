@@ -1,14 +1,22 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 void copy2(char* org, char** dst)
 {
 	*dst = org;
 }
 
-void copy(char* org, char* dst)
+char *copy(char* org, char* dst)
 {
-	dst = org;
+	char *d=(char*)malloc(strlen(org)*sizeof(char));
+	// // dst = org;
+	for (int i = 0; i < strlen(org); i++)
+	{
+		d[i]=org[i];
+	}
+	return d;
+	
 }
 
 void mod(char* org, char* dst)
@@ -25,13 +33,13 @@ int main()
 	char* str2 = "other";
 	char str3[32];
 
-	copy(str1, str2);
-	//copy2(str1, &str2);
+	//str2= copy(str1, str2);
+	copy2(str1, &str2);
 	printf("str1 %s str2 %s\n", str1, str2);
 
 	mod(str1, str3);
 	printf("str1 %s str3 %s\n", str1, str3);
-
+	//free(str2);
 	//mod(str1, str1);
 	return 0;
 }

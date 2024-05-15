@@ -8,9 +8,16 @@ o hay que declararlas al comienzo del codigo
 
 ########## sol_arg1.cambia#################
 -¿Por qué cambia el valor de y tras la llamada a sum()?
+porque al ser pasadas por referencias, en el metoodo sumC, cambia sus valores.
 
 -¿Por qué en ocasiones se usa el operador ‘.’ y en otras ‘->’ para acceder a los campos de una estructura?
+. se usa cuando queremos acceder directamente a elementos que tenemos en una variable tipo struct
+-> se usa para acceder indirectamente a elementos del nuestro puntero a struct
 
 -¿Por qué el valor de zc pasa a ser incorrecto sin volver a usarlo en el código?
+al terminar de ejecutar el metodo de sumC() se elimina las variables locales usadas, puesto que 
+ya no sirven para nda, al devolver su direccion y no la variable como tal, esa direccion de memoria,
+queda invalidada y se produce el segmentation fault 
 
 -Corrije el código para evitar el error producido en zc
+envez de retornar punteros, retornamos el valor de la variable. Ver solucion 

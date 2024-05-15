@@ -1,0 +1,30 @@
+########## sol_strings1.c#################
+-El código contiene un error. ¿Se manifiesta en compilación o en ejecución? ¿Por qué se produce? Soluciona el error comentando la(s) línea(s) afectadas. Vuelve a compilar y ejecutar.
+no se manifiesta, pero es un error de ejecucion,en msg al final no limitamos la palabra con '\0'
+
+-¿En qué dirección está la letra 'B' de la cadena "Bonjour"? ¿Y la de la la letra 'j'?
+Tras la asignación p=msg2;, ¿cómo podemos recuperar la dirección de la cadena "Bonjour"?
+guardandola previamente en otra variable puntero a esa direccion
+
+-¿Por qué la longitud de las cadenas p y msg2 es 2 tras la línea 30? Se asignan 3 bytes a 'p' que modifican a ambos, pero luego la longitud es sólo 2.
+porque no cuenta '\0'
+
+-¿Por qué strlen() devuelve un valor diferente a sizeof()?
+strlen() te devuelve el tamaño del string hasta el primer salgo de linea o '\0'
+sizeof() te devuelve el tamaño total que tiene la variable declarada
+
+########## sol_strings2.c#################
+-El código de copy no funciona. ¿Por qué?
+hay que compiar de elemto en elementos
+
+-Usa ahora la función copy2() (descomenta la línea correspondiente). ¿Funciona la copia?
+funciona por la doble referencia **
+
+-Propón una implementación correcta de la copia.
+ver solucion en programa
+
+-¿Qué hace la función mod()? ¿Por qué funciona?
+pone en mayusculas todo el string 
+
+-Descomenta la última llamada a la función mod(). Compila y ejecuta. ¿Por qué se produce el error?
+porque intentamos meter el orignen el destino

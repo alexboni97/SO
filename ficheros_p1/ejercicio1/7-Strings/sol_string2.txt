@@ -1,9 +1,0 @@
--El código de copy no funciona. ¿Por qué?
-
--Usa ahora la función copy2() (descomenta la línea correspondiente). ¿Funciona la copia?
-
--Propón una implementación correcta de la copia.
-
--¿Qué hace la función mod()? ¿Por qué funciona?
-
--Descomenta la última llamada a la función mod(). Compila y ejecuta. ¿Por qué se produce el error?
