@@ -76,5 +76,6 @@ int main(int argc, char *argv[])
 		*blocks/=2;
 		fprintf(stdout,"%ld		%s\n",*blocks,argv[i]);
 	}
+	free(blocks);
 	return 0;
 }

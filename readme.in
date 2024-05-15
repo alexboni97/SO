@@ -75,7 +75,8 @@ Indice-Funciones usadas en  practicas
 |      |  |--> readdir() //leer directorio
 |      |  |--> strcmp() //comparar dos strings
 |      |  |--> closedir() //cerrar directorio
-|      |  |--> du -ks //bash que hace este ejer
+|      |  |--> du -ks //bash -  comando que hace lo mismo sobre el directorio actual
+|      |  |--> lstat() //estado/tamaño del directorio o fichero, se guarda en un stat
 |      |    
 |      |--> Ejercicio 5 - Administración de ficheros y directorio
 |         |--> mkdir, rmdir, rm, touch, echo
