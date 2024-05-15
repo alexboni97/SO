@@ -18,6 +18,9 @@ void mostrar(int fdo)
 	}
 	// write(fdd, arr, s);
 }
+void usage(){
+	fprintf(stderr, "Usage ./mostrar <fileIn> [-n N > 0 | -e]\n");
+}
 
 //int main()
 int main(int argc,char *argv[])
@@ -28,56 +31,44 @@ int main(int argc,char *argv[])
 	// char *argv3="10";
 	// char *argv4="-e";
 	// char *argv[]={argv1,argv2,argv3,argv4};
-	if (argc > 5 || argc < 4)
+
+	int opt, N,tamN, fdo, pos,end;
+	N=0;
+	while ((opt = getopt(argc, argv, "n:e")) != -1)
 	{
-		fprintf(stderr, "Usage %s <fileIn> [-n N] [-e]\n", argv[0]);
-		exit(1);
+		switch (opt)
+		{
+		case 'n':
+			N=atoi(optarg);
+			if(N==0){
+				usage();
+				exit(EXIT_FAILURE);
+			}
+			break;
+		case 'e':
+			end=SEEK_END;
+			break;
+		default:
+			break;
+		}
 	}
-	int opt, N,tamN, fdo, pos;
-	opt = getopt(argc, argv, "n");
-	if (opt == 'n')
+	if(optind>=argc){
+		fprintf(stderr,"Invalid FileIn\n");
+		usage();
+		exit(EXIT_FAILURE);
+	}
+	fdo=open(argv[optind],O_RDONLY);
+	if (fdo == -1)
 	{
-		fdo = open(argv[1], O_RDONLY);
-		if (fdo == -1)
-		{
-			fprintf(stderr, "no se pudo abrir fileIn");
-			exit(1);
-		}
-		if (optind >= argc)
-		{
-			fprintf(stderr, "tiene que tener un valor la opcion -n");
-			close(fdo);
-			exit(1);
-		}
-		//N = atoi(optarg); //preguntar profe porque en el manual hay este ejemplo y no funciona
-		////N=atoi(argv[optind]);
-		// //N=*argv[optind]-'0';//valido si solo tiene un caracter
-		//strtol((optarg,NULL,10))
-		char *salto=argv[optind];
-		tamN=strlen(salto);
-		N=0;
-		for(int i=0;i<tamN;i++){
-			N= 10*N + salto[i]-'0';
-		}
-		opt = getopt(argc, argv, "e");
-		if (opt == -1)
-		{
-			lseek(fdo, N, SEEK_SET);
-			mostrar(fdo);
-		}
-		else if (opt == 'e')
-		{
-			pos = lseek(fdo, -N, SEEK_END);
-			mostrar(fdo);
-		}
-		else
-		{
-			fprintf(stderr, "opcion invalida: %c", opt);
-			close(fdo);
-			exit(1);
-		}
-		close(fdo);
+		fprintf(stderr, "no se pudo abrir fileIn\n");
+		exit(EXIT_FAILURE);
 	}
+	if(end!=SEEK_END)
+		lseek(fdo, N, SEEK_SET);
+	else
+		lseek(fdo, -N, SEEK_END);
+	mostrar(fdo);
+	close(fdo);
 
 	return 0;
 }

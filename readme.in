@@ -42,26 +42,28 @@ Indice-Funciones usadas en  practicas
 |      |  |-->getc() //leer byte a byte de fichero
 |      |  |-->putc() //escribir byte a byte en un fichero
 |      |    
-|      |--> Ejercicio - showfile en dos .c
+|      |--> Ejercicio 2 - showfile en dos .c
 |      |  |--> loadstr() //funcion auxiliar que lee de un fichero hasta el fianl
 |      |  |--> fopen(), fclose(),fread(), fwrite(), fseek(), malloc() //funciones usadas
 |      |    
-|      |--> Ejercicio - estudiantes //uso de todas las funciones f....()
+|      |--> Ejercicio 3-4 - estudiantes //uso de todas las funciones f....()
 |      
 |---> ficheros_p3 -> Conceptos basicos de sistemas de ficheros
 |      |--> Ejercicio 1 -Copia de ficheros regulares
 |      |  |--> open() //abrir fichero devuelve un apuntador
-|      |  |--> read() //leer de fichero
-|      |  |--> write() //escribir en fichero
+|      |  |--> read() //leer de fichero x tamaño a un array
+|      |  |--> write() //escribir en fichero x tamaño desde un array
 |      |  |--> copy() //auxiliar que copia de un fichero a otro
+|      |  |--> //PERMISOS DE USUARIO - especificacion
 |      |    
 |      |--> Ejercicio 2 - Enlaces simbolicos
 |      |  |--> struct stat //variable externa que almacena su tipo
 |      |  |--> lstat() //lee el estado de una entrada tipo directorio ej
-|      |  |--> readlink() //mirar para que funciona
-|      |  |--> symlink() //mirar para que funciona
-|      |  |--> stat //bash comando
-|      |  |--> diff //bash comando
+|      |  |--> readlink() //lee de un enlace simbolico a un buffer un tamaño
+|      |  |--> symlink() //crea el enlace simbolico despues de haberlo leido en dicho buffer
+|      |  |--> stat //bash comando - estado de una entrada del directorio
+|      |  |--> diff //bash comando  - diferencia entre dos ficheros
+|      |  |--> ln -s //bash comando - crear enlace simbolico
 |      |    
 |      |--> Ejercicio 3 - Desplazamiento del marcador de posición en ficheros
 |      |  |-->getopt() lseek() atoi() strlen() open()..... //write por salida estandar
