@@ -12,13 +12,14 @@ Indice-Funciones usadas en  practicas
 |    |
 |    |--> Ejercicio 2 - Depuracion
 |    |  |--> gdb //depuracion por consola
+|    |  |--> atoi //string to int
 |    |  
 |    |--> Ejercicio 3 - Parseo
-|    |  |--> getopt() //getopt.c
-|    |  |--> optarg //mirar para que funciona
-|    |  |--> optind //indice al primer argumento de opt
-|    |  |--> typedef enum() //defs.h 
-|    |  |--> strtol //mirar para que funciona
+|    |  |--> getopt() //parsea las opciones del ejecutable
+|    |  |--> optarg //devuelve el argumento que tiene la opcion
+|    |  |--> optind //indice al primer o siguiente argumento sin procesar
+|    |  |--> typedef enum() //defs.h define un enumerado
+|    |  |--> strtol //transforma un string en un numero en cualquier base
 |    |  
 |    |--> Ejercicio 4 - ficheros
 |       |--> typedef struct //declaracion en defs.h

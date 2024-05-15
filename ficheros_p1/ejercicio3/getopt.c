@@ -51,13 +51,23 @@ int main(int argc, char *argv[])
 	options.par_mode = ODD;
 	options.lenght= 10;
 	options.title = NULL;
-
 	/* Parse command-line options */
-	while((opt = getopt(argc, argv, "h")) != -1) {
+	while((opt = getopt(argc, argv, "hl:e")) != -1) {
 		switch(opt) {
 		case 'h':
 			usage();
 			exit(0);
+		case 'e':
+			options.par_mode=EVEN;
+			break;
+		case 'l':
+			options.lenght=strtol(optarg,NULL,10);
+			if(options.lenght==0){
+				fprintf(stderr, "Invalid lenght\n");
+				usage();
+				exit(0);
+			}
+			break;
 		default:
 			exit(EXIT_FAILURE);
 		}
@@ -71,7 +81,7 @@ int main(int argc, char *argv[])
 	}
 	
 	/* Fill options.title with the corresponding element of argv */
-	// options.title = argv[xxxx];
+	options.title = argv[optind];
 
     /* Call display_numbers */
 	display_numbers (options.lenght, options.par_mode, options.title);

@@ -9,7 +9,8 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}", //NOMBRE DE MI PROGRAMA EJECUTABLE IGUAL QUE MI .C SIN LA EXTENSION 
-            // "program": "${workspaceFolder}/hello2", //NOMBRE DE MI PROGRAMABA EJECUTABLE DENTRO DE MI WORKESPACE
+            // "program": "${workspaceFolder}/hello2", //NOMBRE DE MI PROGRAMABA EJECUTABLE DENTRO DE MI WORKESPACE ejemplo
+            //"args": ["-l","2","-e","depurando"], //ARGUMENTOS DE ENTRADA PARA MI PROGRAMA ejemplo
             "args": [], //ARGUMENTOS DE ENTRADA PARA MI PROGRAMA
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
