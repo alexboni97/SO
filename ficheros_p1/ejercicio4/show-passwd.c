@@ -60,10 +60,13 @@ passwd_entry_t* parse_passwd(struct options* options, int* nr_entries)
 
 	entries=malloc(sizeof(passwd_entry_t)*entry_count);
 	/* zero fill the array of structures */
+	//reserva memoria para entries y asigna a todas las entradas de tamaño sizeof(passwd_entry_t)*entry_count
+	//el valor de 0
 	memset(entries,0,sizeof(passwd_entry_t)*entry_count);
 
 	/* Parse file */
 	entry_idx=0;
+
 	cur_line=1;
 	while (fgets(line, MAX_PASSWD_LINE + 1, passwd) != NULL) {
 		
@@ -84,7 +87,8 @@ passwd_entry_t* parse_passwd(struct options* options, int* nr_entries)
 				strcpy(cur_entry->login_name,token);
 				break;
 			case ENCRYPTED_PASS_IDX:
-				cur_entry->optional_encrypted_passwd=clone_string(token);
+				// cur_entry->optional_encrypted_passwd=clone_string(token);//usa funcion aux, ejercicio de sustitucion por  strdup
+				cur_entry->optional_encrypted_passwd=strdup(token);
 				break;
 			case UID_IDX:
 				if (sscanf(token,"%d",&cur_entry->uid)!=1) {
@@ -100,15 +104,18 @@ passwd_entry_t* parse_passwd(struct options* options, int* nr_entries)
 				}
 				break;
 			case USER_NAME_IDX:
-				cur_entry->user_name=clone_string(token);
+				// cur_entry->user_name=clone_string(token);
+				cur_entry->user_name=strdup(token);
 				break;
 			case USER_HOME_IDX:
-				cur_entry->user_home=clone_string(token);
+				// cur_entry->user_home=clone_string(token);
+				cur_entry->user_home=strdup(token);
 				break;
 			case USER_SHELL_IDX:
 				/* remove new line from token */
 				token[strlen(token)-1]='\0';
-				cur_entry->user_shell=clone_string(token);
+				// cur_entry->user_shell=clone_string(token);
+				cur_entry->user_shell=strdup(token);
 				break;
 			default:
 				break;

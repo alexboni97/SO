@@ -22,19 +22,18 @@ Indice-Funciones usadas en  practicas
 |    |  |--> strtol //transforma un string en un numero en cualquier base
 |    |  
 |    |--> Ejercicio 4 - ficheros
+|       |--> sscanf()// leer de un buffer de string y convertir de ASCII a binario si quieres
+|       |--> stdrdup()// clona un string si hay suficiente memoria
 |       |--> typedef struct //declaracion en defs.h
-|       |--> static inline char* //mirar para que funciona
 |       |--> fprinf() //escribir en una salida stderr, fichero, stdout, etc
-|       |--> perror() //mirar como funciona
+|       |--> perror() //gestion de errores
 |       |--> fopen() //abrir fichero
 |       |--> fgets() //leer de fichero
 |       |--> fseek() //mover puntero del fichero
-|       |--> memset() //mirar como funciona 
-|       |--> strsep() //mirar como funciona
-|       |--> strcpy() //mirar como funciona
-|       |--> clone_string() //mirar como funciona local
-|       |--> free_entries() //mirar como funciona local
-|       |--> sscanf() //mirar como funciona
+|       |--> memset() //asigna memoria a un buffer y asigna valores en las entradas de ese buffer
+|       |--> strsep() //dividir una cadena de caracteres a partir de un signo en tokens 
+|       |--> strcpy() //copiar un string a otro
+|       |--> clone_string() //funcion local que duplica un string lo mismo que strdup
 |      
 |---> ficheros_p2 -> programacion en C y libreria estandar
 |      |--> Ejercicio 1 - showfile
