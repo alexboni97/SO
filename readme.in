@@ -111,8 +111,8 @@ Indice-Funciones usadas en  practicas
 |      |  |-->Otros usados: getopt(), WIFEEXITED(), WIFSIGNALED()
 |      |    
 |      |--> Ejercicio 4 - Manejo de ficheros con varios procesos e hilos
-|         |-->RESOLVEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEER hecho en clase de examen
-|         |-->
+|         |-->sprintf() //guarda una cadena de caracteres en un buffer 
+|         |-->for() //bucle en script de bash
 | 
 |---> ficheros_p5 -> Sincronizacion de hilos de un mismo proceso
 |      |--> Ejercicio disco (VARIABLES CONDICIONALES Y CERROJOS)

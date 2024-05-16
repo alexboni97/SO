@@ -25,7 +25,8 @@ int main(void)
             exit(0);
         } else {
             /* Parent */
-            lseek(fd1, 5, SEEK_CUR);
+            wait(NULL);
+            //lseek(fd1, 5, SEEK_CUR);
         }
     }
 
