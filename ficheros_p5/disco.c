@@ -14,7 +14,7 @@ int nturno,vturno=0;
 int vticket,nticket=0;
 int n_vips_esperando = 0;
 
-typedef struct P{
+struct P{
 	int id;
 	int tipo;
 };
@@ -31,7 +31,8 @@ void enter_normal_client(int id){
 		//wait
 		pthread_cond_wait(&vcAforo, &mutex);
 	}
-	printf("No vip entrando\n");
+	//descomentar para que surga el mal comportamiento
+	//printf("No vip entrando\n"); 
 
 	aforoActual++;
 	nturno++;
@@ -57,7 +58,8 @@ void enter_vip_client(int id){
 
 	}
 
-	printf("Vip entrando\n");
+	//descomentar para que surga el mal comportamiento
+	//printf("Vip entrando\n");
 	n_vips_esperando--;
 	aforoActual++;
 	vturno++;
@@ -103,7 +105,6 @@ void *client(void *arg){
 
 int main(int argc, char *argv[]){
 	FILE *f = fopen(argv[1], "r");
-	// FILE *f = fopen("ejemplo.txt", "r");
 
 	int n;	//numero de hilos a crear
 	if (f==NULL){
