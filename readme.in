@@ -133,7 +133,7 @@ Indice-Funciones usadas en  practicas
 |         |-->pthread_cond_destroy() //destruccion de la variable condicional
 | 
 |---> ficheros_p6 -> Sincronizacion de hilos de distintos Procesos
-|      |--> Ejercicio Cocineros y Salvajes(semaforos)
+|      |--> Ejercicio 1 - Cocineros y Salvajes(semaforos)
 |      |  |--> sem_t //variable que es un semaforo
 |      |  |--> signal() //mirar para que funciona
 |      |  |--> sem_open() //abrir semaforo
@@ -144,7 +144,7 @@ Indice-Funciones usadas en  practicas
 |      |  |--> sem_close() //cerrar semaforo
 |      |  |--> sem_unlink() //desmapear semaforo
 |      |    
-|      |--> Ejercicio Cocineros y Salvajes(mutex y variables condicionales)
+|      |--> Ejercicio 2 - Cocineros y Salvajes(mutex y variables condicionales)
 |      |  |-->
 | 
 |---> ficheros_p7 -> 
