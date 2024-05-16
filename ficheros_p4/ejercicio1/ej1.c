@@ -32,6 +32,7 @@ void list_dir(char *name)
 	DIR *d;
 	struct dirent *dinfo;
 	d = opendir(name);
+	fprintf(stdout, "%s:\n", name);
 	while ((dinfo = readdir(d)) != NULL)
 	{
 		fprintf(stdout, "%s\n", dinfo->d_name);
@@ -53,14 +54,19 @@ void list_dir_recurse(char *name)
 	struct dirent *de;
 	d = opendir(name);
 	struct stat *info;
+	fprintf(stdout, "%s:\n", name);
 	while ((de = readdir(d)) != NULL){
 		pid_t pid;
 		if(strcmp(de-> d_name, ".") != 0 && strcmp(de-> d_name, "..") != 0 && de->d_type == DT_DIR){
 			
 			pid = fork();
 			if (pid == 0){
-				
-				execlp(opt.progname, "-R", de->d_name);
+				fprintf(stdout, "\n");
+				char * subdir=malloc((strlen(de->d_name)+strlen(name))*sizeof(char));
+				strcat(subdir,name);
+				strcat(subdir,"/");
+				strcat(subdir,de->d_name);
+				execlp(opt.progname,opt.progname, "-R", subdir, NULL);
 			}
 			else{
 				wait(NULL);
@@ -70,13 +76,12 @@ void list_dir_recurse(char *name)
 			fprintf(stdout, "%s\n", de->d_name);
 		}
 	}
-	close(d);
+	closedir(d);
 }
 
 int main(int argc, char **argv)
 {
-	char *dirname = argv[1];
-	int o;
+	char *dirname ;
 
 	opt.progname = argv[0];
 	opt.recurse = 0;
@@ -99,15 +104,15 @@ int main(int argc, char **argv)
 			break;
 		}
 	}
+	if (optind >= argc)
+		dirname=".";
+	else
+		 dirname = argv[optind];
+		/********************************************/
 
-	/********************************************/
-
-	if (opt.recurse)
-		printf("%s:\n", dirname);
-
-	// list_dir(dirname);
-
-	if (opt.recurse)
+	if (!opt.recurse)
+		list_dir(dirname);
+	else if (opt.recurse)
 		list_dir_recurse(dirname);
 
 	return 0;

@@ -79,24 +79,39 @@ Indice-Funciones usadas en  practicas
 |      |  |--> lstat() //estado/tamaño del directorio o fichero, se guarda en un stat
 |      |    
 |      |--> Ejercicio 5 - Administración de ficheros y directorio
-|         |--> mkdir, rmdir, rm, touch, echo
+|         |--> script.sh //uso de mkdir, rmdir, rm, touch, echo, etc
 | 
 |---> ficheros_p4 -> Procesos e hilos
-|      |--> Ejercicio 1 - Creación de procesos y ejecución de programas (ls dir)
+|      |--> Ejercicio 1 - Creación de procesos y ejecución de programas (listar recursivo dir)
 |      |  |--> fork() //creacion de proceso nuevo
 |      |  |--> execlp() // ejecucicion de proceso hijo
 |      |  |--> wait() // espera de proceso padre
+|      |  |--> strcat() // concatenar cadenas de char, hacer malloc antes
+|      |  |--> strncat() // concatenar cadenas de char, limitando el tamaño maximo a concatenar
 |      |    
 |      |--> Ejercicio 2 - Creación y paso de parámetros a hilos
-|      |  |--> pthread_create, pthread_join, pthread_self // RESOLVEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEER
-|      |  |-->
+|      |  |--> pthread_t // declaracion del hilo
+|      |  |--> pthread_attr_t // declaracion de los atributos del hilo
+|      |  |--> pthread_attr_init() // inicializacion de los atributos
+|      |  |--> pthread_create// creacion y ejecucion de los hilos 
+|      |  |--> pthread_join() // espera del hilo principal hasta que termine el hijo
+|      |  |--> pthread_self() // long que define su indentificador del hilo
+|      |  |--> pthread_equal() //compara si son iguales dos indentificadores del hilos 
+|      |  |--> pthread_exit() //fin de ejecucion del hilo
+|      |  |--> pthread_attr_destroy() //destruccion de los atributos
 |      |    
-|      |--> Ejercicio 3 - Manejo de señales
-|      |  |-->RESOLVEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEER
-|      |  |-->
+|      |--> Ejercicio 3 - Manejo de señales(procesos)
+|      |  |--> kill() //matar proceso definiento un tipo de muerte
+|      |  |--> struct sigaction //struc para manejar una señal
+|      |  |--> sigaction.sa_sigaction //funcion que realiza
+|      |  |--> sigaction.sa_handler //funcion o señales que ignora
+|      |  |--> sigaction() //asignar señal y funcion que realizar al suceder
+|      |  |--> alarm() //programar alarma en segundos
+|      |  |--> wait() //espera a que termine el hijo con su estado
+|      |  |-->Otros usados: getopt(), WIFEEXITED(), WIFSIGNALED()
 |      |    
 |      |--> Ejercicio 4 - Manejo de ficheros con varios procesos e hilos
-|         |-->RESOLVEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEER
+|         |-->RESOLVEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEER hecho en clase de examen
 |         |-->
 | 
 |---> ficheros_p5 -> Sincronizacion de hilos de un mismo proceso
