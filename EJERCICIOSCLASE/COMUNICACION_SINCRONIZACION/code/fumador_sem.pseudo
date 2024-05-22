@@ -1,0 +1,22 @@
+// FUMADOR QUE NECESITA TABACO Y CERILLAS (tiene infinito papel)
+
+
+FumadorTabacoCerillas( ) {
+
+    while( TRUE ) {
+
+        lock( ingr_mutex )
+
+        // toma tabaco
+        ingredientes[0] = FALSE
+
+        // toma cerillas
+        ingredientes[1] = FALSE
+
+        unlock( ingr_mutex )
+
+        fumar()
+
+    }
+
+}

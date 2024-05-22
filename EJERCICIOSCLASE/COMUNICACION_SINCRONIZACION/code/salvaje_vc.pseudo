@@ -1,0 +1,34 @@
+// Variables compartidas
+int raciones = 0
+
+mutex_t mutex;
+cont_t fullPot;
+cont_t emptyPot;
+
+
+Salvaje() {
+
+    while( TRUE ) {
+
+        lock( mutex )
+
+        while( raciones == 0 ) {
+          // 1. Avisamos al hilo cocinero.
+          signal( emptyPot )
+
+          // 2. Esperamos a que haya raciones en el caldero.
+          wait( fullPot, mutex )
+
+        }
+
+        raciones--;
+
+        unlock( mutex )
+
+        comer()
+
+
+    }
+
+    
+}

@@ -1,0 +1,29 @@
+// FUMADOR QUE NECESITA TABACO Y CERILLAS (tiene infinito papel)
+
+
+FumadorTabacoCerillas( ) {
+
+    while( TRUE ) {
+
+        lock( ingr_mutex )
+
+        // Mientras no haya tabaco o cerillas.
+        while( !ingredientes[0] || !ingredientes[1]  )
+          wait( ingr_cond, ingr_mutex  )
+
+        // toma tabaco
+        ingredientes[0] = FALSE
+
+        // toma cerillas
+        ingredientes[1] = FALSE
+
+        broadcast( ingr_cond ) // Broadcast porque es necesario asegurarse
+                               // de que el Agente se despierta.
+
+        unlock( ingr_mutex )
+
+        fumar()
+
+    }
+
+}

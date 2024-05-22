@@ -1,0 +1,27 @@
+semaforo_gasolinera = Semaforo ( 2 );
+semaforo_surtidor   = Semaforo ( 1 ); // mutex
+
+int surtidor_libre[2] = {TRUE, TRUE};
+
+
+void cliente( dinero ) {
+
+  int surtidor;
+
+  semaforo_gasolinera.wait()
+
+  semaforo_surtidor.wait() // mutex.lock()
+
+  surtidor = (surtidor_libre[0])?0:1; // LEO
+  surtidor_libre[surtidor] = FALSE;   // ESCRIBO
+  semaforo_surtidor.signal() // mutex.unlock()
+
+  ServirCombustible(surtidor, dinero);
+
+  semaforo_surtidor.wait() // mutex.lock()
+  surtidor_libre[surtidor] = TRUE;
+  semaforo_surtidor.signal() // mutex.unlock()
+
+  semaforo_gasolinera.signal()
+
+}

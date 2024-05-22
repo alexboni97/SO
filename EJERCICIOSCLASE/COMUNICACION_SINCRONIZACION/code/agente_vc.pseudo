@@ -1,0 +1,47 @@
+
+// Estructura compartida por agente y fumadores
+
+// {tabaco, cerillas, papel}
+int ingredientes[3] = {FALSE, FALSE, FALSE}
+
+// mutex
+mutex_t ingr_mutex;
+
+// variable de condición
+cond_t ingr_cond
+
+
+
+// AGENTE  
+Agente() {
+    int i, j;
+
+    while( TRUE ) {
+        // Generar dos ingredientes de forma aleatoria.
+        i = random() % 3;
+        do{ j=random() % 3; } while( j == i );
+        // i y j son aleatorios, en rango 0,2 y además distintos.
+
+        lock( ingr_mutex )
+
+        // Mientras haya ingredientes encima de la mesa, espero (me bloqueo).
+        while( ingredientes[0] || ingredientes[1] || ingredientes[2]  )
+          wait( ingr_cond, ingr_mutex  ) 
+
+        // tabaco?
+        ingredientes[0] = (i==0) || (j==0); // TRUE.
+
+        // cerillas?
+        ingredientes[1] = (i==1) || (j==1); // TRUE.
+
+        // papel?
+        ingredientes[2] = (i==2) || (j==2); // TRUE.
+
+        // Señalizamos.
+        broadcast( ingr_cond  )
+
+        unlock( ingr_mutex )
+
+    }
+    
+}

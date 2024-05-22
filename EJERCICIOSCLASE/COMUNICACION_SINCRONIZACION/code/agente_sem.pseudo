@@ -1,0 +1,40 @@
+
+// Estructura compartida por agente y fumadores
+
+// {tabaco, cerillas, papel}
+int ingredientes[3] = {FALSE, FALSE, FALSE}
+
+mutex = Semaforo( 1 )
+sem_cons = Semaforo( 0 )
+
+// AGENTE  
+Agente() {
+    int i, j;
+
+    while( TRUE ) {
+        // Generar dos ingredientes de forma aleatoria.
+        i = random() % 3;
+        do{ j=random() % 3; } while( j == i );
+
+        mutex.wait()
+
+        // tabaco?
+        ingredientes[0] = (i==0) || (j==0); // TRUE.
+
+        // cerillas?
+        ingredientes[1] = (i==1) || (j==1); // TRUE.
+
+        // papel?
+        ingredientes[2] = (i==2) || (j==2); // TRUE.
+
+        while( numBloqueados > 0 ) {
+            sem_cons.signal()
+            numBloqueados--;
+        }
+
+
+        mutex.signal()
+
+    }
+    
+}

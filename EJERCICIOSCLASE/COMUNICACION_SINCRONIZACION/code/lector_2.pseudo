@@ -1,0 +1,38 @@
+cerrojo = Semaforo( 1 )
+lectores = Semaforo( 1 )
+mtxLect = Semaforo( 1 )
+mtxEscr = Semaforo( 1 )
+
+int n_lectores = 0;
+int n_escritores = 0;
+
+Lector() {
+
+    while(1) {
+
+        wait( lectores )
+
+        wait( mtxLect  )
+
+        n_lectores++; // W
+        if( n_lectores == 1 )  // R
+            wait( cerrojo )
+
+        signal( mtxLect  )
+
+        signal( lectores )
+
+     ----- LECTURA ------
+
+        wait( mtxLect  )
+
+        n_lectores--;
+        if( n_lectores == 0 )
+            signal( cerrojo  )
+
+        signal( mtxLect  )
+
+
+    }
+    
+}

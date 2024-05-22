@@ -1,0 +1,5 @@
+gcc p2_cons.c -o p2_cons.x -lpthread
+gcc p2_impar.c -o p2_impar.x -lpthread
+gcc p2_par.c -o p2_par.x -lpthread
+
+gcc p2_par_impar_sem.c -o p2_par_impar_sem.x -lpthread

@@ -1,0 +1,19 @@
+Concinero() {
+
+    while( TRUE ) {
+
+      lock( mutex )
+
+      while( raciones > 0 ) {
+        wait( emptyPot, mutex )    
+      }
+
+      raciones = M;
+
+      broadcast( fullPot )
+
+      unlock( mutex )
+
+    }
+    
+}

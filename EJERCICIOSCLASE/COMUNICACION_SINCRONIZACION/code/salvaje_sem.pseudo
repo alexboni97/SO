@@ -1,0 +1,16 @@
+// Variables compartidas
+int raciones = 0
+
+
+Salvaje() {
+
+    while( TRUE ) {
+
+        raciones--;
+
+        comer()
+
+
+    }
+    
+}
